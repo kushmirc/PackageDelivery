@@ -1,0 +1,56 @@
+import package
+
+
+class Truck:
+    def __init__(self):
+        self.loaded_packages = []
+
+truck1 = Truck()
+truck2 = Truck()
+truck3 = Truck()
+
+truck1.loaded_packages.append(package.package1.package_id)
+truck1.loaded_packages.append(package.package13.package_id)
+truck1.loaded_packages.append(package.package14.package_id)
+truck1.loaded_packages.append(package.package15.package_id)
+truck1.loaded_packages.append(package.package16.package_id)
+truck1.loaded_packages.append(package.package19.package_id)
+truck1.loaded_packages.append(package.package20.package_id)
+truck1.loaded_packages.append(package.package29.package_id)
+truck1.loaded_packages.append(package.package30.package_id)
+truck1.loaded_packages.append(package.package31.package_id)
+truck1.loaded_packages.append(package.package34.package_id)
+truck1.loaded_packages.append(package.package37.package_id)
+truck1.loaded_packages.append(package.package40.package_id)
+print(truck1.loaded_packages)
+
+truck2.loaded_packages.append(package.package3.package_id)
+truck2.loaded_packages.append(package.package6.package_id)
+truck2.loaded_packages.append(package.package18.package_id)
+truck2.loaded_packages.append(package.package25.package_id)
+truck2.loaded_packages.append(package.package28.package_id)
+truck2.loaded_packages.append(package.package32.package_id)
+truck2.loaded_packages.append(package.package36.package_id)
+truck2.loaded_packages.append(package.package38.package_id)
+print(truck2.loaded_packages)
+
+truck3.loaded_packages.append(package.package2.package_id)
+truck3.loaded_packages.append(package.package4.package_id)
+truck3.loaded_packages.append(package.package5.package_id)
+truck3.loaded_packages.append(package.package7.package_id)
+truck3.loaded_packages.append(package.package8.package_id)
+truck3.loaded_packages.append(package.package9.package_id)
+truck3.loaded_packages.append(package.package10.package_id)
+truck3.loaded_packages.append(package.package11.package_id)
+truck3.loaded_packages.append(package.package12.package_id)
+truck3.loaded_packages.append(package.package17.package_id)
+truck3.loaded_packages.append(package.package21.package_id)
+truck3.loaded_packages.append(package.package22.package_id)
+truck3.loaded_packages.append(package.package23.package_id)
+truck3.loaded_packages.append(package.package24.package_id)
+truck3.loaded_packages.append(package.package26.package_id)
+truck3.loaded_packages.append(package.package27.package_id)
+truck3.loaded_packages.append(package.package33.package_id)
+truck3.loaded_packages.append(package.package35.package_id)
+truck3.loaded_packages.append(package.package39.package_id)
+print(truck3.loaded_packages)

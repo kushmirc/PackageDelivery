@@ -1,6 +1,7 @@
 import package
 
 
+
 class HashTable:
     # Constructor with optional initial capacity parameter.
     # Assigns all buckets with an empty list.
@@ -89,6 +90,7 @@ packageHash.insert(package.package39.package_id, package.package39.address)
 packageHash.insert(package.package40.package_id, package.package40.address)
 print(packageHash.table)
 
-print("\nLoopkup:")
+'''print("\nLoopkup:")
 print(packageHash.lookup(1))
-print(packageHash.lookup(2))
+print(packageHash.lookup(2))'''
+

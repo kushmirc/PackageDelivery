@@ -7,8 +7,8 @@ with open("packageCSV.csv", encoding='utf-8-sig') as fp:
     package_list = [row for row in reader]
     #for row in reader:
         #print(row)
-    print(package_list[0][1])
-print(package_list)
+    #print(package_list[0][1])
+#print(package_list)
 
 
 class Package:

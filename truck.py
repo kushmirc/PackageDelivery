@@ -186,9 +186,8 @@ def truckDeliverPackages(truck_number):
     truck_number.miles = truck_number.miles + min_distance
     truck_number.time = truck_number.time + timeToDeliver(min_distance)
     time_obj = truck_number.time
-    '''if time_obj > time_input_hours:
-        print(main.packageHash.table)
-        return'''
+    if time_obj > time_input_hours:
+            return
     #truck_number.miles = float(decimal.Decimal(truck_number.miles)) + float(decimal.Decimal.min_distance)
     '''print('Closest address,', closest_address, ', is', min_distance, "miles away. Package # is:", closest_pkg, '. Truck miles is:', truck_number.miles, ". Truck time is:", truck_number.time, '.', 'time_obj is:', time_obj)'''
     if time_input_hours == 24.0:
@@ -207,10 +206,6 @@ def truckDeliverPackages(truck_number):
         truck_number.time = truck_number.time + timeToDeliver(min_distance)
         time_obj = truck_number.time
         if time_obj > time_input_hours:
-            #print(main.packageHash.table)
-            '''for bucket in main.packageHash.table:
-                for pkg in bucket:
-                    print(pkg,)'''
             return
         '''print('Closest address,', closest_address, ', is', min_distance, "miles away. Package # is:", closest_pkg, '. Truck miles is:', truck_number.miles, ". Truck time is:", truck_number.time, '.', 'time_obj is:', time_obj)'''
         if time_input_hours == 24.0:

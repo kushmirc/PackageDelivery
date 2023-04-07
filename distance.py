@@ -1,7 +1,7 @@
 # Read distanceCSV file
 import csv
 import address
-import main
+
 
 
 with open("distanceCSV.csv", encoding='utf-8-sig') as fp:
@@ -47,6 +47,7 @@ def distanceBetween(address1, address2):
 
 
 def minDistanceFrom(fromAddress, truckPackages):
+    import main
     min_distance = 100.0
     closest_address = ''
     closest_pkg = 0

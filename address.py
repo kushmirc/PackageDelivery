@@ -1,6 +1,7 @@
 # Read addressCSV file
 import csv
 
+#create a 2d list of addresses to match the distances in distance.py
 with open("addressCSV.csv", encoding='utf-8-sig') as fp:
     reader = csv.reader(fp, delimiter=",", quotechar='"' )
     # next(reader, None)  # skip the headers
@@ -8,6 +9,7 @@ with open("addressCSV.csv", encoding='utf-8-sig') as fp:
     for row in reader:
         print(row)
 
+#create a dictionary of addresses (keys) and indexes to match the distance.py table (value)
 address_lookup = {
     '4001 South 700 East' : 0,
     '1060 Dalton Ave S' : 1,
@@ -33,12 +35,12 @@ address_lookup = {
     '4580 S 2300 E' : 21,
     '5025 State St' : 22,
     '5100 South 2700 West' : 23,
-    '5383 S 900 East #104' : 24,
+    '5383 South 900 East #104' : 24,
     '600 E 900 South' : 25,
     '6351 South 900 East' : 26
 }
 
-#print(start_address.get('1060 Dalton Ave S', 'N/A'))
+
 
 '''end_address = {
     '4001 South 700 East' : {

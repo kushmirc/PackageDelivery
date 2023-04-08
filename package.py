@@ -1,16 +1,11 @@
-# Read packageCSV file
+# Read packageCSV file and create a 2d list of packages
 import csv
 
 with open("packageCSV.csv", encoding='utf-8-sig') as fp:
     reader = csv.reader(fp, delimiter=",", quotechar='"' )
-    # next(reader, None)  # skip the headers
     package_list = [row for row in reader]
-    #for row in reader:
-        #print(row)
-    #print(package_list[0][1])
-#print(package_list)
 
-
+#Create the Package class with a constructor containing all package fields from the packageCSV
 class Package:
     def __init__(self, package_id, address, city, state, zip, delivery_deadline, weight, special_notes, delivery_status):
         self.package_id = int(package_id)
@@ -23,11 +18,10 @@ class Package:
         self.special_notes = special_notes
         self.delivery_status = delivery_status
 
+#Create all package objects.
 package1 = Package(package_list[0][0],package_list[0][1],package_list[0][2],package_list[0][3],package_list[0][4],package_list[0][5],package_list[0][6],package_list[0][7],'at the hub')
-#print(package1.package_id, package1.address)
 
 package2 = Package(package_list[1][0], package_list[1][1], package_list[1][2], package_list[1][3], package_list[1][4], package_list[1][5], package_list[1][6], package_list[1][7],'at the hub')
-#print(package2.package_id, package2.address)
 
 package3 = Package(package_list[2][0], package_list[2][1], package_list[2][2], package_list[2][3], package_list[2][4], package_list[2][5], package_list[2][6], package_list[2][7],'at the hub')
 
@@ -105,12 +99,3 @@ package39 = Package(package_list[38][0], package_list[38][1], package_list[38][2
 
 package40 = Package(package_list[39][0], package_list[39][1], package_list[39][2], package_list[39][3], package_list[39][4], package_list[39][5], package_list[39][6], package_list[39][7],'at the hub')
 
-#print(package18.package_id, package18.address)
-
-'''def create_package(name, index):
-    name = name
-    index = int(index)
-    name = Package(package_list[index][0], package_list[index][1],package_list[index][2],package_list[index][3],package_list[index][4],package_list[index][5],package_list[index][6], package_list[index][7])
-
-create_package('package3', '2')
-print(package3.package_id)'''

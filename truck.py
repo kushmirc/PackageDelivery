@@ -172,7 +172,7 @@ def loadTruck3():
     truck3.loaded_packages.append(package.package27.package_id)
     main.packageHash.update_delivery(27, 'en route', '')
 
-#This is the core algorithm which executes the "nearest neighbor" algorithm accomplished by looping the minDistanceFrom function.
+#This is the core algorithm which implements the "nearest neighbor" algorithm accomplished by looping the minDistanceFrom function.
 def truckDeliverPackages(truck_number):
     import distance
     import main
@@ -213,7 +213,7 @@ def truckDeliverPackages(truck_number):
     #once loaded_packages list is empty (all packages delivered) the look will end, and the truck will travel back to the hub.
     #add the miles and the time for the trip back to the hub, and update the global time object.
     truck_number.miles = truck_number.miles + distance.distanceBetween(closest_address, '4001 South 700 East')
-    truck_number.time = truck_number.time + timeToDeliver(min_distance)
+    truck_number.time = truck_number.time + timeToDeliver(distance.distanceBetween(closest_address, '4001 South 700 East'))
     time_obj = truck_number.time
 
 #load truck 1 and deliver its packages if the time input is either the default value, or if it's after the departure time of the truck.

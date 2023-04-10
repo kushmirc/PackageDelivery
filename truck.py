@@ -22,12 +22,14 @@ user_input = input()
 #if the user enters an invalid option, display an error message and wait for another input.
 #if the user quits by entering 4 at any point, quit the program.
 #if the user enters 1, run the program.
+#space-time complexity: O(N + 1)
 while user_input != '1' and user_input != '2' and user_input != '3':
     if user_input == '4':
         sys.exit()
     user_input = input('Invalid entry, please try again' '\n')
 
 #if the user enters 2, capture a package number and time value to look up.
+#space-time complexity: O(1) + O(3N) + O(3)
 if user_input == '2':
     package_input = int(input('Please enter a package number:' '\n'))
     while package_input < int('1') or int(package_input) > int('40'):
@@ -39,6 +41,7 @@ if user_input == '2':
     time_input_hours = float(time_input_split[0]) + (float(time_input_split[1]) / 60)
 
 #if the user enters 3, capture a time value to look up.
+#space-time complexity: O(3)
 if user_input == '3':
     time_input = input('Please enter a time (ex. \'10:15\')' '\n')
     #this is the same string-to-float time conversion described above.
@@ -54,27 +57,32 @@ class Truck:
         self.miles = 0.0
 
 #Calculate the time taken to deliver a package (as a float in hours) with a given distance assuming trucks always drive at 18mph.
+#space-time complexity: O(1)
 def  timeToDeliver(distance):
     time_to_deliver = distance / 18  #time measured in hours
     return time_to_deliver
 
 
 #Instantiate Truck1, set its name, and set its departure time from the hub.
+#space-time complexity: O(4) + O(2)
 truck1 = Truck()
 truck1.name = 'Truck 1'
 truck1.time = 8.0
 
 #Instantiate Truck2, set its name, and set its departure time from the hub.
+#space-time complexity: O(4) + O(2)
 truck2 = Truck()
 truck2.name = 'Truck 2'
 truck2.time = 9.0833333333334
 
 #Instantiate Truck3, set its name, and set its departure time from the hub.
+#space-time complexity: O(4) + O(2)
 truck3 = Truck()
 truck3.name = 'Truck 3'
 truck3.time = 10.33333333334
 
 #define a method to load the packages that will go on Truck 1.
+#space-time complexity: 13(O(1) + O(2) + O(3N))
 def loadTruck1():
     import main
     truck1.loaded_packages.append(package.package1.package_id)
@@ -105,6 +113,7 @@ def loadTruck1():
     main.packageHash.update_delivery(40, 'en route', '')
 
 #define a method to load the packages that will go on Truck 2.
+#space-time complexity: 11(O(1) + O(2) + O(3N))
 def loadTruck2():
     import main
     truck2.loaded_packages.append(package.package3.package_id)
@@ -133,6 +142,7 @@ def loadTruck2():
 #define a method to load the packages that will go on Truck 3.
 #since a package from Truck 3 will have a special message, display the message when the full program is run
 #(the full program runs when there is no time input by the user, a.k.a., option 1).
+# space-time complexity: O(2) + 16(O(1) + O(2) + O(3N))
 def loadTruck3():
     import main
     if time_input_hours == 24.0:
@@ -178,6 +188,7 @@ def truckDeliverPackages(truck_number):
     import main
     global time_obj
     #The first address is always the hub, so the minDistanceFrom is run once at the beginning from the hub.
+    # space-time complexity (lines 192-209): (O(3)) + (O(3(N + 2))) + O(7) + (O(2) + O(3N))
     min_distance, closest_address, closest_pkg = distance.minDistanceFrom('4001 South 700 East', truck_number.loaded_packages)
     #add the miles to the first nearest address to the miles traveled by the truck.
     truck_number.miles = truck_number.miles + min_distance
@@ -199,6 +210,7 @@ def truckDeliverPackages(truck_number):
     #for the remainder of the packages in the truck, look through the minDistanceFrom function (nearest neighbor)
     #to deliver to the next nearest package address at each iteration, using the previous address as the From Address.
     #the rest of the loop works the same as the steps above.
+    #space-time complexity (lines 214-229): (O(3)) + (O(3(N + 2))) + O(7) + (O(2) + O(3N)) + 2(O(3)) + O(1)
     for i in range(len(truck_number.loaded_packages)):
         min_distance, closest_address, closest_pkg = distance.minDistanceFrom(closest_address, truck_number.loaded_packages)
         truck_number.miles = truck_number.miles + min_distance
@@ -217,16 +229,19 @@ def truckDeliverPackages(truck_number):
     time_obj = truck_number.time
 
 #load truck 1 and deliver its packages if the time input is either the default value, or if it's after the departure time of the truck.
+# space-time complexity: (13(O(1) + O(2) + O(3N))) + (O(3)) + (O(3(N + 2))) + O(7) + (O(2) + O(3N))
 if time_input_hours > truck1.time:
     loadTruck1()
     truckDeliverPackages(truck1)
 
 #load truck 2 and deliver its packages if the time input is either the default value, or if it's after the departure time of the truck.
+# space-time complexity: (11(O(1) + O(2) + O(3N))) + (O(3)) + (O(3(N + 2))) + O(7) + (O(2) + O(3N))
 if time_input_hours > truck2.time:
     loadTruck2()
     truckDeliverPackages(truck2)
 
 #load truck 3 and deliver its packages if the time input is either the default value, or if it's after the departure time of the truck.
+# space-time complexity: (O(2) + 16(O(1) + O(2) + O(3N)) + (O(3(N + 2))) + O(7) + (O(2) + O(3N))
 if time_input_hours > truck3.time:
     loadTruck3()
     truckDeliverPackages(truck3)
@@ -236,11 +251,13 @@ print()
 if time_input_hours != 24.0:
     import main
     #for option 3, print the information for all of the packages in the hash table.
+    # space-time complexity: O(N^2)
     if user_input == '3':
         for bucket in main.packageHash.table:
             for pkg in bucket:
                 print(pkg)
     #for option 2, print the information for just the package number input by the user.
+    # space-time complexity: O(N^2)
     elif user_input == '2':
         for bucket in main.packageHash.table:
             for pkg in bucket:
@@ -248,6 +265,7 @@ if time_input_hours != 24.0:
                     print(pkg)
 
 #print truck reports and total mileage if the user chose option 1 (time_input_hours remains as the default value):
+#space-time complexity: O(20)
 if time_input_hours == 24.0:
     print('Truck 1 Report:')
     print('------------------------')

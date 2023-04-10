@@ -1,4 +1,5 @@
-# Read addressCSV file and create a 2d list of addresses to match the distances in distance.py
+#Read addressCSV file and create a 2d list of addresses to match the distances in distance.py
+#space-time complexity: O(N^2)
 import csv
 
 with open("addressCSV.csv", encoding='utf-8-sig') as fp:
@@ -9,6 +10,7 @@ with open("addressCSV.csv", encoding='utf-8-sig') as fp:
         print(row)
 
 #create a dictionary of addresses (keys) and indexes to match the distance.py table (value)
+#space-time complexity: O(27)
 address_lookup = {
     '4001 South 700 East' : 0,
     '1060 Dalton Ave S' : 1,

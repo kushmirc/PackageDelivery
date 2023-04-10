@@ -1,4 +1,6 @@
 # Read distanceCSV file and create a 2d list of distances.
+#space-time complexity: O(N^2)
+
 import csv
 import address
 
@@ -10,6 +12,7 @@ with open("distanceCSV.csv", encoding='utf-8-sig') as fp:
         #print(row)
 
 #Define a method to find the distance between two addresses passed in.
+#space-time complexity: O(3)
 def distanceBetween(address1, address2):
     #Distances are given in only one direction on the distanceCSV.
     #This checks if the addresses are going in the right direction, and returns the corresponding distance.
@@ -23,6 +26,7 @@ def distanceBetween(address1, address2):
 
 #Define a method to find the nearest package delivery address from among all of those remaining in the truck.
 #This is the heart of the core algorithm using a "nearest neighbor" approach.
+#space-time complexity: (O(3)) + (O(3(N + 2)))
 def minDistanceFrom(fromAddress, truckPackages):
     import main
     #set the min_distance to a number higher than any distance found in the distanceCSV.

@@ -6,6 +6,7 @@ import package
 class HashTable:
     # Constructor with optional initial capacity parameter.
     # Assigns all buckets with an empty list.
+    # space-time complexity: O(1) + O(10)
     def __init__(self, initial_capacity=10):
         # initialize the hash table with empty bucket list entries.
         self.table = []
@@ -13,6 +14,7 @@ class HashTable:
             self.table.append([])
 
     # Inserts a new package into the hash table.
+    # space-time complexity: O(2) + O(8N) + O(2)
     def insert(self, package_id, address, city, state, zip, delivery_deadline, weight, special_notes, delivery_status):  # does both insert and update
         # get the bucket list where this package will go.
         bucket = hash(package_id) % len(self.table)
@@ -39,6 +41,7 @@ class HashTable:
 
     # Searches for a package with matching package_id in the hash table.
     # Returns the package address if found, or None if not found.
+    # space-time complexity: O(2) + O(2N)
     def lookup(self, package_id):
         # get the bucket list where this package_id would be.
         bucket = hash(package_id) % len(self.table)
@@ -53,6 +56,7 @@ class HashTable:
 
     # Searches for a package with matching package_id in the hash table.
     # Updates the delivery_status (including delivery time) if found, or None if not found.
+    # space-time complexity: O(2) + O(3N)
     def update_delivery(self, package_id, delivery_status, time):
         # get the bucket list where this package_id would be.
         bucket = hash(package_id) % len(self.table)
@@ -66,9 +70,11 @@ class HashTable:
                 return True
 
 #create the hash table
+# space-time complexity: O(1) + O(10)
 packageHash = HashTable()
 
 #insert all packages into the hash table
+#space-time complexity: 40(O(2) + O(8N) + O(2))
 packageHash.insert(package.package1.package_id, package.package1.address, package.package1.city, package.package1.state, package.package1.zip,package.package1.delivery_deadline, package.package1.weight, package.package1.special_notes, package.package1.delivery_status)
 packageHash.insert(package.package2.package_id, package.package2.address, package.package2.city, package.package2.state, package.package2.zip,package.package2.delivery_deadline, package.package2.weight, package.package2.special_notes, package.package2.delivery_status)
 packageHash.insert(package.package3.package_id, package.package3.address, package.package3.city, package.package3.state, package.package3.zip,package.package3.delivery_deadline, package.package3.weight, package.package3.special_notes, package.package3.delivery_status)

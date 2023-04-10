@@ -1,4 +1,5 @@
-# Read packageCSV file and create a 2d list of packages
+#Read packageCSV file and create a 2d list of packages
+#space-time complexity: O(8N)
 import csv
 
 with open("packageCSV.csv", encoding='utf-8-sig') as fp:
@@ -19,6 +20,7 @@ class Package:
         self.delivery_status = delivery_status
 
 #Create all package objects.
+#space-time complexity: 40(O(8))
 package1 = Package(package_list[0][0],package_list[0][1],package_list[0][2],package_list[0][3],package_list[0][4],package_list[0][5],package_list[0][6],package_list[0][7],'at the hub')
 
 package2 = Package(package_list[1][0], package_list[1][1], package_list[1][2], package_list[1][3], package_list[1][4], package_list[1][5], package_list[1][6], package_list[1][7],'at the hub')

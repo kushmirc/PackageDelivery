@@ -3,8 +3,6 @@
 ### <em>Video Walkthrough: </em>https://youtu.be/1WIykO5yglE
 <a href="https://youtu.be/1WIykO5yglE">
 <img src="https://user-images.githubusercontent.com/107213928/231574545-1d219c8f-4aaf-4c91-8ebb-38237a5e0cca.png" alt="video walkthrough"></a>
-![PackageDelivery_screenshot](https://user-images.githubusercontent.com/107213928/231574545-1d219c8f-4aaf-4c91-8ebb-38237a5e0cca.png)
-
 
 
 ## Summary:

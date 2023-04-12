@@ -18,14 +18,8 @@ The program also employs a "nearest neighbor" algorithm to enable the delivery o
 The closest package is identified, and the next delivery is made to that address. The algorithm then loops back to find the next nearest package again from among those
 remaining in the truck. 
 
-
-
-each of the five JavaFX windows. Users are able to add modify and delete part and products using buttons on the main screen. They can search for parts and products
-using the search fields on the main screen. There are error handling messages presented when various invalid operations are performed by the user, as well as
-confirmation dialogue boxes for deleting parts, products, and associated parts for products.  
-
-There are five class files.  The inventory class houses the majority of the methods used for managing parts and products. Three classes, Parts, InHouse and Outsourced
-are related to parts. Parts is an abstract class with two children, InHouse and Outsourced. The Products class handles all product related members.  
-There are Javadocs provided in the InventorySystem directory which includes descriptions of all classes and methods. Please see the Javadocs for more detailed descriptions.  
-
-This application was built with JavaFX SDK version 18.0.1 and JDK 17.  The IntelliJ JavaFX project generator was used with the Maven Build System selection when creating the project in IntelliJ.  Scene Builder was used for creating the UI layouts of the fxml files.
+There is a user input-output capability which takes place in the console. When the main.py file of the program is run, the user is presented with a menu of options.
+The entire delivery program may be run with the first option, and a report is printed showing the activity accomplished by each truck. Alternatively, the user can 
+check the status of all packages, or of just one package at a time chosen by the user. If the user choses an invalid option the program prints an error message, and 
+waits for additional input. 
+descriptions.  

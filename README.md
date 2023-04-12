@@ -20,6 +20,5 @@ remaining in the truck.
 
 There is a user input-output capability which takes place in the console. When the main.py file of the program is run, the user is presented with a menu of options.
 The entire delivery program may be run with the first option, and a report is printed showing the activity accomplished by each truck. Alternatively, the user can 
-check the status of all packages, or of just one package at a time chosen by the user. If the user choses an invalid option the program prints an error message, and 
+check the status of all packages, or of just one package at a time, chosen by the user. If the user choses an invalid option the program prints an error message, and 
 waits for additional input. 
-descriptions.  
